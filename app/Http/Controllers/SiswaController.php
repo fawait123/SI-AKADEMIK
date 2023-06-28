@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siswa;
+use App\Models\TahunAkademik;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,7 @@ class SiswaController extends Controller
     public function index()
     {
         //
-        $data = Siswa::latest()->get();
+        $data = Siswa::with('kelas.tahun')->latest()->get();
         return view('siswa.index',compact('data'));
     }
 

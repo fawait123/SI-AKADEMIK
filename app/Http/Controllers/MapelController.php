@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\Mapel;
+use App\Models\TahunAkademik;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
@@ -13,6 +15,8 @@ class MapelController extends Controller
     public function index()
     {
         //
+        $data = Mapel::with(['guru','tahun'])->latest()->get();
+        return view('mapel.index',compact('data'));
     }
 
     /**
@@ -21,6 +25,9 @@ class MapelController extends Controller
     public function create()
     {
         //
+        $guru = Guru::get();
+        $tahun = TahunAkademik::get();
+        return view('mapel.form',compact('guru','tahun'));
     }
 
     /**
@@ -29,6 +36,17 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'id_guru'=>'required',
+            'id_tahun'=>'required',
+            'mapel'=>'required',
+            'nama_kelas'=>'required'
+        ]);
+
+        Mapel::create($request->all());
+
+        return redirect()->route('mapel.index')->with(['message'=>'Data berhasil ditambahkan']);
     }
 
     /**
@@ -45,6 +63,10 @@ class MapelController extends Controller
     public function edit(Mapel $mapel)
     {
         //
+        $id = $mapel->id_mapel;
+        $guru = Guru::get();
+        $tahun = TahunAkademik::get();
+        return view('mapel.form',compact('guru','tahun','id','mapel'));
     }
 
     /**
@@ -53,6 +75,17 @@ class MapelController extends Controller
     public function update(Request $request, Mapel $mapel)
     {
         //
+
+        $request->validate([
+            'id_guru'=>'required',
+            'id_tahun'=>'required',
+            'mapel'=>'required',
+            'nama_kelas'=>'required'
+        ]);
+
+        $mapel->update($request->all());
+
+        return redirect()->route('mapel.index')->with(['message'=>'Data berhasil diubah']);
     }
 
     /**
@@ -61,5 +94,8 @@ class MapelController extends Controller
     public function destroy(Mapel $mapel)
     {
         //
+        $mapel->delete();
+        return redirect()->route('mapel.index')->with(['message'=>'Data berhasil dihapus']);
+
     }
 }

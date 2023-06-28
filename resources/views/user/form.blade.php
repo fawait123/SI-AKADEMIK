@@ -38,26 +38,31 @@
                     </div>
                     <div class="input-area">
                         <label for="password" class="form-label">password</label>
-                        <input id="password" value="{{old('password',isset($id)? $user->password:'')}}" name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="password">
+                        <input id="password" value="" name="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="password">
                         @error('password')
                         <div class="invalid-feedback">{{$message}}</div>
                         @enderror
                     </div>
-
                     <div class="input-area">
-                        <label for="agama" class="form-label">agama</label>
-                        <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
+                        <label for="agama" class="form-label">model</label>
+                        <select name="modelID" id="modelID" class="form-control @error('modelID') is-invalid @enderror" onchange="selectedModel(this)">
                             <option value="">pilih</option>
-                            <option value="islam" {{old('agama',isset($id)?$user->agama : '') == 'islam' ? 'selected':'' }}>Islam</option>
-                            <option value="kristen" {{old('agama',isset($id)?$user->agama : '') == 'kristen' ? 'selected':'' }}>Kristen</option>
-                            <option value="hindu"  {{old('agama',isset($id)?$user->agama : '') == 'hindu' ? 'selected':'' }}>Hindu</option>
-                            <option value="buddha"  {{old('agama',isset($id)?$user->agama : '') == 'buddha' ? 'selected':'' }}>Buddha</option>
-                            <option value="konghucu"  {{old('agama',isset($id)?$user->agama : '') == 'konghucu' ? 'selected':'' }}>Konghucu</option>
+                            <optgroup label="SISWA">
+                                @foreach($siswa as $item)
+                                    <option value="{{$item->id_siswa}}"  data-namespace="\App\Models\Siswa" {{old('modelID',isset($id)?$user->modelID : '') == $item->id_siswa ? 'selected':'' }}>{{$item->nama}}</option>
+                                @endforeach
+                            </optgroup>
+                            <optgroup label="GURU">
+                                @foreach($guru as $item)
+                                    <option value="{{$item->id_guru}}" data-namespace="\App\Models\Guru" {{old('modelID',isset($id)?$user->modelID : '') == $item->id_guru ? 'selected':'' }}>{{$item->nama}}</option>
+                                @endforeach
+                            </optgroup>
                         </select>
-                        @error('agama')
+                        @error('modelID')
                         <div class="invalid-feedback">{{$message}}</div>
                         @enderror
                     </div>
+                    <input type="hidden" name="namespace" value="{{isset($id)?$user->namespace:''}}">
 
                     <button type="submit" class="btn btn-primary">{{isset($id)?'Ubah':'Tambah'}}</button>
                 </div>
@@ -65,3 +70,12 @@
         </div>
     </div>
 @endsection
+@push('customjs')
+    <script>
+        function selectedModel(sel){
+            let namespace = $(sel).find(':selected').data('namespace')
+            $("input[name='namespace']").val(namespace)
+        }
+
+    </script>
+@endpush

@@ -5,7 +5,7 @@
     <div class=" space-y-5">
         <div class="card">
             <header class=" card-header noborder">
-                <a href="{{route('siswa.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                <a href="{{route('sesi.create')}}" class="btn btn-primary btn-sm">Tambah</a>
             </header>
             <div class="card-body px-6 pb-6">
                 <div class="overflow-x-auto -mx-6 dashcode-data-table">
@@ -19,32 +19,17 @@
                                     <th scope="col" class=" table-th ">
                                         UUID
                                     </th>
-
                                     <th scope="col" class=" table-th ">
-                                        Nama
+                                        Hari
+                                    </th>
+                                    <th scope="col" class=" table-th ">
+                                        Jam
                                     </th>
 
                                     <th scope="col" class=" table-th ">
-                                        Tanggal Lahir
+                                        Mapel
                                     </th>
 
-                                    <th scope="col" class=" table-th ">
-                                        Jenis Kelamin
-                                    </th>
-
-                                    <th scope="col" class=" table-th ">
-                                        Agama
-                                    </th>
-
-                                    <th scope="col" class=" table-th ">
-                                        NO HP
-                                    </th>
-                                    <th scope="col" class=" table-th ">
-                                        Alamat
-                                    </th>
-                                    <th scope="col" class=" table-th ">
-                                        Kelas
-                                    </th>
                                     <th scope="col" class=" table-th ">
                                         Aksi
                                     </th>
@@ -54,20 +39,16 @@
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                                     @foreach($data as $item)
                                         <tr>
-                                            <td class="table-td">{{$item->id_siswa}}</td>
-                                            <td class="table-td ">{{$item->nama}}</td>
-                                            <td class="table-td ">{{$item->tempat_lahir.', '.date('d M Y', strtotime($item->tanggal_lahir))}}</td>
-                                            <td class="table-td ">{{$item->jenis_kelamin}}</td>
-                                            <td class="table-td ">{{$item->agama}}</td>
-                                            <td class="table-td ">{{$item->no_hp}}</td>
-                                            <td class="table-td ">{{$item->alamat}}</td>
-                                            <td class="table-td ">{{$item->kelas->where('tahun.status','aktif')->first()->nama_kelas}}</td>
+                                            <td class="table-td">{{$item->id_sesi}}</td>
+                                            <td class="table-td ">{{$item->hari}}</td>
+                                            <td class="table-td ">{{$item->jam_mulai.' - '.$item->jam_selesai}}</td>
+                                            <td class="table-td ">{{$item->mapel->mapel}}</td>
                                             <td class="table-td ">
                                                 <div class="flex space-x-3 rtl:space-x-reverse">
 {{--                                                    <button class="action-btn" type="button">--}}
 {{--                                                        <iconify-icon icon="heroicons:eye"></iconify-icon>--}}
 {{--                                                    </button>--}}
-                                                    <button class="action-btn" type="button" onclick="window.location.href='{{route('siswa.edit',$item->id_siswa)}}'">
+                                                    <button class="action-btn" type="button" onclick="window.location.href='{{route('sesi.edit',$item->id_sesi)}}'">
                                                         <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
                                                     </button>
                                                     <button class="action-btn" type="button"  data-bs-toggle="modal" data-bs-target="#small_modal{{$loop->iteration}}">
@@ -103,7 +84,7 @@
                                                             </p>
                                                         </div>
                                                         <!-- Modal footer -->
-                                                        <form action="{{route('siswa.destroy',$item->id_siswa)}}" method="post">
+                                                        <form action="{{route('sesi.destroy',$item->id_sesi)}}" method="post">
                                                             @method('delete')
                                                             @csrf
                                                             <div class="flex items-center justify-end p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">

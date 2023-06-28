@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <title>Dashcode - HTML Template</title>
-    <link rel="icon" type="image/png" href="{{asset('assets')}}/images/logo/favicon.svg">
+    <title>NUR IMAN - DASHBOARD</title>
+    <link rel="icon" type="image/png" href="{{asset('favicon.png')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,9 +28,9 @@
         <div id="bodyOverlay" class="w-screen h-screen fixed top-0 bg-slate-900 bg-opacity-50 backdrop-blur-sm z-10 hidden"></div>
         <div class="logo-segment">
             <a class="flex items-center" href="index.html">
-                <img src="{{asset('assets')}}/images/logo/logo-c.svg" class="black_logo" alt="logo">
-                <img src="{{asset('assets')}}/images/logo/logo-c-white.svg" class="white_logo" alt="logo">
-                <span class="ltr:ml-3 rtl:mr-3 text-xl font-Inter font-bold text-slate-900 dark:text-white">DashCode</span>
+                <img src="{{asset('favicon.png')}}" width="40px" class="black_logo" alt="logo">
+                <img src="{{asset('favicon.png')}}" width="40px" class="white_logo" alt="logo">
+                <span class="ltr:ml-3 rtl:mr-3 text-xl font-Inter font-bold text-slate-900 dark:text-white">NUR IMAN</span>
             </a>
             <!-- Sidebar Type Button -->
             <div id="sidebar_type" class="cursor-pointer text-slate-900 dark:text-white text-lg">
@@ -193,9 +193,9 @@
                 <div class="app-header z-[999] ltr:ml-[248px] rtl:mr-[248px] bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
                     <div class="flex justify-between items-center h-full">
                         <div class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
-                            <a href="index.html" class="mobile-logo xl:hidden inline-block">
-                                <img src="{{asset('assets')}}/images/logo/logo-c.svg" class="black_logo" alt="logo">
-                                <img src="{{asset('assets')}}/images/logo/logo-c-white.svg" class="white_logo" alt="logo">
+                            <a href="{{route('home')}}" class="mobile-logo xl:hidden inline-block">
+                                <img src="{{asset('favicon.png')}}" width="40px" class="black_logo" alt="logo">
+                                <img src="{{asset('favicon.png')}}" width="40px" class="white_logo" alt="logo">
                             </a>
                             <button class="smallDeviceMenuController hidden md:inline-block xl:hidden">
                                 <iconify-icon class="leading-none bg-transparent relative text-xl top-[2px] text-slate-900 dark:text-white" icon="heroicons-outline:menu-alt-3"></iconify-icon>
@@ -1457,101 +1457,6 @@
                             </div>
                             <!-- END: gray-scale Dropdown -->
 
-                            <!-- BEGIN: Notification Dropdown -->
-                            <!-- Notifications Dropdown area -->
-                            <div class="relative md:block hidden">
-                                <button class="lg:h-[32px] lg:w-[32px] lg:bg-slate-100 lg:dark:bg-slate-900 dark:text-white text-slate-900 cursor-pointer
-      rounded-full text-[20px] flex flex-col items-center justify-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <iconify-icon class="animate-tada text-slate-800 dark:text-white text-xl" icon="heroicons-outline:bell"></iconify-icon>
-                                    <span class="absolute -right-1 lg:top-0 -top-[6px] h-4 w-4 bg-red-500 text-[8px] font-semibold flex flex-col items-center
-        justify-center rounded-full text-white z-[99]">
-      4</span>
-                                </button>
-                                <!-- Notifications Dropdown -->
-                                <div class="dropdown-menu z-10 hidden bg-white shadow w-[335px]
-      dark:bg-slate-800 border dark:border-slate-700 !top-[23px] rounded-md overflow-hidden lrt:origin-top-right rtl:origin-top-left">
-                                    <div class="flex items-center justify-between py-4 px-4">
-                                        <h3 class="text-sm font-Inter font-medium text-slate-700 dark:text-white">Notifications</h3>
-                                        <a class="text-xs font-Inter font-normal underline text-slate-500 dark:text-white" href="#">See All</a>
-                                    </div>
-                                    <div class="" role="none">
-                                        <div class="bg-slate-100 dark:bg-slate-700 dark:bg-opacity-70 text-slate-800 block w-full px-4 py-2 text-sm relative">
-                                            <div class="flex ltr:text-left rtl:text-right">
-                                                <div class="flex-none ltr:mr-3 rtl:ml-3">
-                                                    <div class="h-8 w-8 bg-white rounded-full">
-                                                        <img src="/{{asset('assets')}}/images/all-img/user.png" alt="user" class="border-white block w-full h-full object-cover rounded-full border">
-                                                    </div>
-                                                </div>
-                                                <div class="flex-1">
-                                                    <a href="#" class="text-slate-600 dark:text-slate-300 text-sm font-medium mb-1 before:w-full before:h-full before:absolute
-                before:top-0 before:left-0">
-                                                        Your order is placed</a>
-                                                    <div class="text-slate-500 dark:text-slate-200 text-xs leading-4">Amet minim mollit non deser unt ullamco est sit
-                                                        aliqua.</div>
-                                                    <div class="text-slate-400 dark:text-slate-400 text-xs mt-1">
-                                                        3 min ago
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-slate-600 dark:text-slate-300 block w-full px-4 py-2 text-sm">
-                                            <div class="flex ltr:text-left rtl:text-right relative">
-                                                <div class="flex-none ltr:mr-3 rtl:ml-3">
-                                                    <div class="h-8 w-8 bg-white rounded-full">
-                                                        <img src="/{{asset('assets')}}/images/all-img/user2.png" alt="user" class="border-transparent block w-full h-full object-cover rounded-full border">
-                                                    </div>
-                                                </div>
-                                                <div class="flex-1">
-                                                    <a href="#" class="text-slate-600 dark:text-slate-300 text-sm font-medium mb-1 before:w-full before:h-full before:absolute
-                before:top-0 before:left-0">
-                                                        Congratulations Darlene 🎉</a>
-                                                    <div class="text-slate-600 dark:text-slate-300 text-xs leading-4">Won the monthly best seller badge</div>
-                                                    3 min ago
-                                                </div>
-                                            </div>
-                                            <div class="flex-0">
-                                                <span class="h-[10px] w-[10px] bg-danger-500 border border-white dark:border-slate-400 rounded-full inline-block"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-slate-600 dark:text-slate-300 block w-full px-4 py-2 text-sm">
-                                        <div class="flex ltr:text-left rtl:text-right relative">
-                                            <div class="flex-none ltr:mr-3 rtl:ml-3">
-                                                <div class="h-8 w-8 bg-white rounded-full">
-                                                    <img src="/{{asset('assets')}}/images/all-img/user3.png" alt="user" class="border-transparent block w-full h-full object-cover rounded-full border">
-                                                </div>
-                                            </div>
-                                            <div class="flex-1">
-                                                <a href="#" class="text-slate-600 dark:text-slate-300 text-sm font-medium mb-1 before:w-full before:h-full before:absolute
-              before:top-0 before:left-0">
-                                                    Revised Order 👋</a>
-                                                <div class="text-slate-600 dark:text-slate-300 text-xs leading-4">Won the monthly best seller badge</div>
-                                                <div class="text-slate-400 dark:text-slate-400 text-xs mt-1">3 min ago</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-slate-600 dark:text-slate-300 block w-full px-4 py-2 text-sm">
-                                        <div class="flex ltr:text-left rtl:text-right relative">
-                                            <div class="flex-none ltr:mr-3 rtl:ml-3">
-                                                <div class="h-8 w-8 bg-white rounded-full">
-                                                    <img src="/{{asset('assets')}}/images/all-img/user4.png" alt="user" class="border-transparent block w-full h-full object-cover rounded-full border">
-                                                </div>
-                                            </div>
-                                            <div class="flex-1">
-                                                <a href="#" class="text-slate-600 dark:text-slate-300 text-sm font-medium mb-1 before:w-full before:h-full before:absolute
-              before:top-0 before:left-0">
-                                                    Brooklyn Simmons</a>
-                                                <div class="text-slate-600 dark:text-slate-300 text-xs leading-4">Added you to Top Secret Project group...</div>
-                                                <div class="text-slate-400 dark:text-slate-400 text-xs mt-1">
-                                                    3 min ago
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END: Notification Dropdown -->
-
                             <!-- BEGIN: Profile Dropdown -->
                             <!-- Profile DropDown Area -->
                             <div class="md:block hidden w-full">
@@ -1560,7 +1465,7 @@
                                     <div class="lg:h-8 lg:w-8 h-7 w-7 rounded-full flex-1 ltr:mr-[10px] rtl:ml-[10px]">
                                         <img src="{{asset('assets')}}/images/all-img/user.png" alt="user" class="block w-full h-full object-cover rounded-full">
                                     </div>
-                                    <span class="flex-none text-slate-600 dark:text-white text-sm font-normal items-center lg:flex hidden overflow-hidden text-ellipsis whitespace-nowrap">Albert Flores</span>
+                                    <span class="flex-none text-slate-600 dark:text-white text-sm font-normal items-center lg:flex hidden overflow-hidden text-ellipsis whitespace-nowrap">{{auth()->user()->name}}</span>
                                     <svg class="w-[16px] h-[16px] dark:text-white hidden lg:inline-block text-base inline-block ml-[10px] rtl:mr-[10px]" aria-hidden="true" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                     </svg>
@@ -1570,7 +1475,7 @@
       overflow-hidden">
                                     <ul class="py-1 text-sm text-slate-800 dark:text-slate-200">
                                         <li>
-                                            <a href="signin-one.html" class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal_logout"  class="block px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-600 dark:hover:text-white font-inter text-sm text-slate-600
             dark:text-white font-normal">
                                                 <iconify-icon icon="heroicons-outline:login" class="relative top-[2px] text-lg ltr:mr-1 rtl:ml-1"></iconify-icon>
                                                 <span class="font-Inter">Logout</span>
@@ -1586,6 +1491,43 @@
                             <!-- end mobile menu -->
                         </div>
                         <!-- end nav tools -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="modal_logout" tabindex="-1" aria-labelledby="small_modal" aria-hidden="true">
+                <div class="modal-dialog modal-sm relative w-auto pointer-events-none">
+                    <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding
+                    rounded-md outline-none text-current">
+                        <div class="relative bg-white rounded-lg shadow dark:bg-slate-700">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between p-5 border-b rounded-t dark:border-slate-600 bg-black-500">
+                                <h3 class="text-xl font-medium text-white dark:text-white capitalize">
+                                    Logout ?
+                                </h3>
+                                <button type="button" class="text-slate-400 bg-transparent hover:text-slate-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center
+                                dark:hover:bg-slate-600 dark:hover:text-white" data-bs-dismiss="modal">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="#ffffff" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10
+                                        11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-6 space-y-4">
+                                <p class="text-base text-slate-600 dark:text-slate-400 leading-6">
+                                    Apakah anda yakin ingin keluar dari aplikasi ?
+                                </p>
+                            </div>
+                            <!-- Modal footer -->
+                            <form action="{{route('logout')}}" method="post">
+                                @csrf
+                                <div class="flex items-center justify-end p-6 space-x-2 border-t border-slate-200 rounded-b dark:border-slate-600">
+                                    <button type="submit" class="btn inline-flex justify-center text-white bg-black-500">Logout</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1684,5 +1626,6 @@
 <script src="{{asset('assets')}}/js/jquery-3.6.0.min.js"></script>
 <script src="{{asset('assets')}}/js/rt-plugins.js"></script>
 <script src="{{asset('assets')}}/js/app.js"></script>
+@stack('customjs')
 </body>
 </html>

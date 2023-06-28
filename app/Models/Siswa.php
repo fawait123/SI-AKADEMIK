@@ -20,4 +20,9 @@ class Siswa extends Model
 
 
     protected  $primaryKey = 'id_siswa';
+
+    public function kelas()
+    {
+        return $this->hasMany(KelasSiswa::class,'id_siswa');
+    }
 }

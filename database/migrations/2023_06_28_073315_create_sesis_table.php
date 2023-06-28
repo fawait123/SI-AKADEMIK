@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sesi', function (Blueprint $table) {
-            $table->string('');
+            $table->string('id_sesi')->primary()->unique();
+            $table->string('id_mapel');
+            $table->string('hari');
+            $table->string('jam_mulai');
+            $table->string('jam_selesai');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

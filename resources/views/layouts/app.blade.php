@@ -15,6 +15,7 @@
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" href="{{asset('assets')}}/css/rt-plugins.css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
     <!-- End : Theme CSS-->
     <script src="{{asset('assets')}}/js/settings.js" sync></script>
 </head>
@@ -1626,6 +1627,7 @@
 <script src="{{asset('assets')}}/js/jquery-3.6.0.min.js"></script>
 <script src="{{asset('assets')}}/js/rt-plugins.js"></script>
 <script src="{{asset('assets')}}/js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 @stack('customjs')
 </body>
 </html>

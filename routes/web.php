@@ -28,6 +28,10 @@ Route::get('home',[\App\Http\Controllers\HomeController::class,'index'])->middle
 
 
 Route::group(['middleware'=>'auth'],function (){
+    //    ROUTE GURU
+    Route::get('guru-mapel',[\App\Http\Controllers\MapelController::class,'gurumapel'])->name('guru.mapel');
+
+
     Route::resource('guru',\App\Http\Controllers\GuruController::class);
     Route::resource('user',\App\Http\Controllers\UserController::class);
     Route::resource('tahun-akademik',\App\Http\Controllers\TahunAkademikController::class);

@@ -98,4 +98,12 @@ class MapelController extends Controller
         return redirect()->route('mapel.index')->with(['message'=>'Data berhasil dihapus']);
 
     }
+
+    public function gurumapel()
+    {
+        $data = Mapel::with('sesi')->where('id_guru',auth()->user()->modelID)->get();
+//        dd($data);
+        return view('guru-mapel',compact('data'));
+    }
+
 }

@@ -31,4 +31,9 @@ class Mapel extends Model
         return $this->belongsTo(Guru::class,'id_guru');
     }
 
+    public function sesi()
+    {
+        return $this->hasMany(Sesi::class,'id_mapel');
+    }
+
 }

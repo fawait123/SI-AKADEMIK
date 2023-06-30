@@ -79,10 +79,26 @@
 @if(auth()->user()->namespace == "\App\Models\Guru")
     <li class="sidebar-menu-title">GURU</li>
     <li>
-        <a href="{{route('guru.mapel')}}" class="navItem {{Request::is('guru.mapel*') ? 'active' : ''}}">
+        <a href="{{route('guru.mapel')}}" class="navItem {{Request::is('guru-mapel*') ? 'active' : ''}}">
         <span class="flex items-center">
             <iconify-icon class="nav-icon" icon="mdi:teach"></iconify-icon>
             <span>MATAPELAJARAN</span>
+        </span>
+        </a>
+    </li>
+    <li>
+        <a href="{{route('guru.kehadiran')}}" class="navItem {{Request::is('guru-kehadiran*') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="ri:input-method-fill"></iconify-icon>
+            <span>INPUT KEHADIRAN</span>
+        </span>
+        </a>
+    </li>
+    <li>
+        <a href="{{route('kehadiran.list')}}" class="navItem {{Request::is('list-kehadiran*') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="fluent:presenter-20-filled"></iconify-icon>
+            <span>DAFTAR KEHADIRAN</span>
         </span>
         </a>
     </li>

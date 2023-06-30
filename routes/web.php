@@ -30,6 +30,9 @@ Route::get('home',[\App\Http\Controllers\HomeController::class,'index'])->middle
 Route::group(['middleware'=>'auth'],function (){
     //    ROUTE GURU
     Route::get('guru-mapel',[\App\Http\Controllers\MapelController::class,'gurumapel'])->name('guru.mapel');
+    Route::get('guru-kehadiran',[\App\Http\Controllers\MapelController::class,'kehadiran'])->name('guru.kehadiran');
+    Route::post('guru-kehadiran',[\App\Http\Controllers\MapelController::class,'kehadiranAction'])->name('guru.kehadiran');
+    Route::get('list-kehadiran',[\App\Http\Controllers\MapelController::class,'listKehadiran'])->name('kehadiran.list');
 
 
     Route::resource('guru',\App\Http\Controllers\GuruController::class);

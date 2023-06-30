@@ -61,7 +61,7 @@
                                             <td class="table-td ">{{$item->agama}}</td>
                                             <td class="table-td ">{{$item->no_hp}}</td>
                                             <td class="table-td ">{{$item->alamat}}</td>
-                                            <td class="table-td ">{{$item->kelas->where('tahun.status','aktif')->first()->nama_kelas}}</td>
+                                            <td class="table-td ">{{$item->kelas->where('tahun.status','aktif')->first()->nama_kelas ?? 'belum disetting'}}</td>
                                             <td class="table-td ">
                                                 <div class="flex space-x-3 rtl:space-x-reverse">
 {{--                                                    <button class="action-btn" type="button">--}}

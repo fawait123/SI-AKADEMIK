@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <title>Dashcode - HTML Template</title>
+    <title>NUR IMAN - LOGIN</title>
     <link rel="icon" type="image/png" href="{{asset('assets')}}/images/logo/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,14 +31,14 @@
     <div class="lg-inner-column">
         <div class="left-column relative z-[1]">
             <div class="max-w-[520px] pt-20 ltr:pl-20 rtl:pr-20">
-                <a href="index.html">
-                    <img src="{{asset('assets')}}/images/logo/logo.svg" alt="" class="mb-10 dark_logo">
-                    <img src="{{asset('assets')}}/images/logo/logo-white.svg" alt="" class="mb-10 white_logo">
+                <a href="{{route('login')}}">
+                    <img src="{{asset('favicon.png')}}" width="60px" alt="" class="mb-10 dark_logo">
+                    <img src="{{asset('favicon.png')}}" width="60px" alt="" class="mb-10 white_logo">
                 </a>
                 <h4>
-                    Unlock your Project
+                    MADRASAH ALIYAH
                     <span class="text-slate-800 dark:text-slate-400 font-bold">
-                            performance
+                            NUR IMAN
                         </span>
                 </h4>
             </div>
@@ -58,7 +58,7 @@
                     <div class="text-center 2xl:mb-10 mb-4">
                         <h4 class="font-medium">Sign in</h4>
                         <div class="text-slate-500 text-base">
-                            Sign in to your account to start using Dashcode
+                            Sign in to your account to start session
                         </div>
                     </div>
                     <!-- BEGIN: Login Form -->

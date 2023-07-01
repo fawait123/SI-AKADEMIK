@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\User;
 use App\Models\WaliKelas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class WaliKelasController extends Controller
 {
@@ -39,7 +41,16 @@ class WaliKelasController extends Controller
             'id_guru'=>'required'
         ]);
 
-        WaliKelas::create($request->all());
+        $wali_kelas = WaliKelas::create($request->all());
+
+        User::create([
+            'username'=>strtolower(join("",explode(' ',$request->nama_kelas))),
+            'email'=>strtolower(join("_",explode(' ',$request->nama_kelas)).'@gmail.com'),
+            'password'=>Hash::make('password'),
+            'name'=>$wali_kelas->nama_kelas,
+            'namespace'=>'\App\Models\WaliKelas',
+            'modelID'=>$wali_kelas->id_wali
+        ]);
 
         return redirect()->route('wali-kelas.index')->with(['message'=>'Data berhasil ditambahkan']);
     }

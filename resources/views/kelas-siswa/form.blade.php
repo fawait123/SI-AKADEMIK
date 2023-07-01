@@ -43,9 +43,15 @@
                         <label for="nama_kelas" class="form-label">kelas</label>
                         <select name="nama_kelas" id="nama_kelas" class="form-control @error('nama_kelas') is-invalid @enderror">
                             <option value="">pilih</option>
-                            @foreach(\App\Helpers\Kelas::list() as $item)
-                                <option value="{{$item}}"  {{old('nama_kelas',isset($id)?$kelas->nama_kelas : '') == $item ? 'selected':'' }}>{{$item}}</option>
-                            @endforeach
+                            @if(auth()->user() == null)
+                                @foreach(\App\Helpers\Kelas::list() as $item)
+                                    <option value="{{$item}}"  {{old('nama_kelas',isset($id)?$kelas->nama_kelas : '') == $item ? 'selected':'' }}>{{$item}}</option>
+                                @endforeach
+                            @else
+                                @foreach($wali as $item)
+                                    <option value="{{$item}}"  {{old('nama_kelas',isset($id)?$kelas->nama_kelas : '') == $item ? 'selected':'' }}>{{$item}}</option>
+                                @endforeach
+                            @endif
                         </select>
                         @error('nama_kelas')
                         <div class="invalid-feedback">{{$message}}</div>

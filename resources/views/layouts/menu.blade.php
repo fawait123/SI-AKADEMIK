@@ -66,11 +66,27 @@
         </span>
         </a>
     </li>
+@endif
+
+@if(auth()->user()->namespace == "Kurikulum")
+    <li class="sidebar-menu-title">KURIKULUM</li>
     <li>
         <a href="{{route('sesi.index')}}" class="navItem {{Request::is('sesi*') ? 'active' : ''}}">
         <span class="flex items-center">
             <iconify-icon class="nav-icon" icon="ri:time-fill"></iconify-icon>
             <span>SESI</span>
+        </span>
+        </a>
+    </li>
+@endif
+
+@if(auth()->user()->namespace == "\App\Models\WaliKelas")
+    <li class="sidebar-menu-title">WALI KELAS</li>
+    <li>
+        <a href="{{route('kelas-siswa.index')}}" class="navItem {{Request::is('kelas-siswa*') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="cil:room"></iconify-icon>
+            <span>KELAS SISWA</span>
         </span>
         </a>
     </li>

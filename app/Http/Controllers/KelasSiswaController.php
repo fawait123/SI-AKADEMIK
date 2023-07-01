@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KelasSiswa;
 use App\Models\Siswa;
 use App\Models\TahunAkademik;
+use App\Models\WaliKelas;
 use Illuminate\Http\Request;
 
 class KelasSiswaController extends Controller
@@ -15,7 +16,13 @@ class KelasSiswaController extends Controller
     public function index()
     {
         //
-        $data = KelasSiswa::with(['siswa','tahun'])->latest()->get();
+        $wali = WaliKelas::where('id_wali',auth()->user()->modelID)->pluck('nama_kelas')->toArray();
+        $data = KelasSiswa::query();
+        $data = $data->with(['siswa','tahun']);
+        if(auth()->user()->namespace == "\App\Models\WaliKelas"){
+            $data = $data->whereIn('nama_kelas',$wali);
+        }
+        $data = $data->latest()->get();
         return view('kelas-siswa.index',compact('data'));
     }
 
@@ -25,9 +32,17 @@ class KelasSiswaController extends Controller
     public function create()
     {
         //
-        $siswa = Siswa::get();
+        $siswa = Siswa::query();
+        $wali = [];
+        if(auth()->user()->namespace == "\App\Models\WaliKelas"){
+            $wali = WaliKelas::where('id_wali',auth()->user()->modelID)->pluck('nama_kelas')->toArray();
+            $kelasSiswa = KelasSiswa::whereIn('nama_kelas',$wali)->pluck('id_siswa')->toArray();
+            $siswa = $siswa->whereIn('id_siswa',$kelasSiswa);
+        }
+
+        $siswa = $siswa->get();
         $tahun = TahunAkademik::get();
-        return view('kelas-siswa.form',compact('siswa','tahun'));
+        return view('kelas-siswa.form',compact('siswa','tahun','wali'));
     }
 
     /**
@@ -61,11 +76,19 @@ class KelasSiswaController extends Controller
     public function edit(KelasSiswa $kelasSiswa)
     {
         //
-        $siswa = Siswa::get();
+        $siswa = Siswa::query();
+        $wali = [];
+        if(auth()->user()->namespace == "\App\Models\WaliKelas"){
+            $wali = WaliKelas::where('id_wali',auth()->user()->modelID)->pluck('nama_kelas')->toArray();
+            $kelasSiswafind = KelasSiswa::whereIn('nama_kelas',$wali)->pluck('id_siswa')->toArray();
+            $siswa = $siswa->whereIn('id_siswa',$kelasSiswafind);
+        }
+
+        $siswa = $siswa->get();
         $tahun = TahunAkademik::get();
         $id = $kelasSiswa->id_kelas;
         $kelas = $kelasSiswa;
-        return view('kelas-siswa.form',compact('siswa','tahun','kelas','id'));
+        return view('kelas-siswa.form',compact('siswa','tahun','kelas','id','wali'));
     }
 
     /**

@@ -102,4 +102,24 @@
         </span>
         </a>
     </li>
+    <li>
+        <a href="{{route('guru.nilai')}}" class="navItem {{Request::is('guru-nilai*') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="fluent:presenter-20-filled"></iconify-icon>
+            <span>INPUT NILAI</span>
+        </span>
+        </a>
+    </li>
+@endif
+
+@if(auth()->user()->namespace == "\App\Models\Siswa")
+    <li class="sidebar-menu-title">SISWA</li>
+    <li>
+        <a href="{{route('kehadiran.list')}}" class="navItem {{Request::is('list-kehadiran*') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="fluent:presenter-20-filled"></iconify-icon>
+            <span>DAFTAR KEHADIRAN</span>
+        </span>
+        </a>
+    </li>
 @endif

@@ -118,7 +118,7 @@ class MapelController extends Controller
         $data = [];
         if($request->filled('id_mapel')){
             $cari = true;
-            $cariMapel = Mapel::find($request->id_mapel);
+            $cariMapel = Mapel::where('id_mapel',$request->id_mapel)->first();
             $whereIn = KelasSiswa::where('nama_kelas',$cariMapel->nama_kelas)->pluck('id_siswa')->toArray();
             $data = Siswa::whereIn('id_siswa',$whereIn)->get();
         }
@@ -134,7 +134,7 @@ class MapelController extends Controller
             return redirect()->back();
         }
 
-        $mapel = Mapel::find($request->id_mapel);
+        $mapel = Mapel::where('id_mapel',$request->id_mapel)->first();
         $tahun = TahunAkademik::where('status','aktif')->first();
         $id_siswa = $request->id_siswa;
         $kehadiran = $request->kehadiran;
@@ -158,7 +158,16 @@ class MapelController extends Controller
 
     public function listKehadiran(Request $request)
     {
-        $mapel = Mapel::where('id_guru',auth()->user()->modelID)->get();
+        $mapel = [];
+
+        if(auth()->user()->namespace == '\App\Models\Guru'){
+            $mapel = Mapel::where('id_guru',auth()->user()->modelID)->get();
+        }else if(auth()->user()->namespace == '\App\Models\Siswa'){
+            $tahunAkademik = TahunAkademik::where('status','aktif')->first();
+            $kelasSiswa = KelasSiswa::where('id_siswa',auth()->user()->modelID)->where('id_tahun',$tahunAkademik->id_tahun)->pluck('nama_kelas')->toArray();
+            $mapel = Mapel::whereIn('nama_kelas',$kelasSiswa)->get();
+        }
+
 
         $datas = collect([]);
         $dataMonth = [];
@@ -170,7 +179,13 @@ class MapelController extends Controller
             $findMapel = Mapel::where('id_mapel',$request->id_mapel)->first();
             $kelasSiswa = KelasSiswa::where('nama_kelas',$findMapel->nama_kelas)->pluck('id_siswa')->toArray();
 
-            $getSiswa = Siswa::whereIn('id_siswa',$kelasSiswa)->get();
+            $getSiswa = Siswa::query();
+            if(auth()->user()->namespace == "\App\Models\Siswa"){
+                $getSiswa = $getSiswa->where('id_siswa',auth()->user()->modelID);
+            }
+
+            $getSiswa = $getSiswa->whereIn('id_siswa',$kelasSiswa);
+            $getSiswa = $getSiswa->get();
 
             foreach ($getSiswa as $item){
                 $months = collect([]);

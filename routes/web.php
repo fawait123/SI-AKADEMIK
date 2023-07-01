@@ -34,6 +34,11 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('guru-kehadiran',[\App\Http\Controllers\MapelController::class,'kehadiranAction'])->name('guru.kehadiran');
     Route::get('list-kehadiran',[\App\Http\Controllers\MapelController::class,'listKehadiran'])->name('kehadiran.list');
 
+//    ROUTE NILAI GURU
+    Route::get('guru-nilai',[\App\Http\Controllers\NilaiController::class,'inputNilai'])->name('guru.nilai');
+    Route::post('guru-nilai',[\App\Http\Controllers\NilaiController::class,'storeNilai'])->name('guru.nilai');
+    Route::get('list-nilai',[\App\Http\Controllers\NilaiController::class,'listNilai'])->name('list.nilai');
+
 
     Route::resource('guru',\App\Http\Controllers\GuruController::class);
     Route::resource('user',\App\Http\Controllers\UserController::class);

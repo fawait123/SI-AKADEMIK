@@ -169,6 +169,8 @@ class MapelController extends Controller
         }
 
 
+
+
         $datas = collect([]);
         $dataMonth = [];
         if($request->filled('id_mapel')){

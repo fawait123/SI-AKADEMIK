@@ -8,6 +8,7 @@ use App\Models\Mapel;
 use App\Models\Nilai;
 use App\Models\Siswa;
 use App\Models\TahunAkademik;
+use App\Models\WaliKelas;
 use Illuminate\Http\Request;
 
 class NilaiController extends Controller
@@ -67,6 +68,9 @@ class NilaiController extends Controller
             $tahunAkademik = TahunAkademik::where('status','aktif')->first();
             $kelasSiswa = KelasSiswa::where('id_siswa',auth()->user()->modelID)->where('id_tahun',$tahunAkademik->id_tahun)->pluck('nama_kelas')->toArray();
             $mapel = Mapel::whereIn('nama_kelas',$kelasSiswa)->get();
+        }else if(auth()->user()->namespace == '\App\Models\WaliKelas'){
+            $wali = WaliKelas::where('id_wali',auth()->user()->modelID)->pluck('nama_kelas')->toArray();
+            $mapel = Mapel::whereIn('nama_kelas',$wali)->get();
         }
 
 

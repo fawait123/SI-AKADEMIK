@@ -90,6 +90,22 @@
         </span>
         </a>
     </li>
+    <li>
+        <a href="{{route('kehadiran.list')}}" class="navItem {{Request::is('list-kehadiran*') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="fluent:presenter-20-filled"></iconify-icon>
+            <span>DAFTAR KEHADIRAN</span>
+        </span>
+        </a>
+    </li>
+    <li>
+        <a href="{{route('list.nilai')}}" class="navItem {{Request::is('list-nilai*') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="carbon:value-variable"></iconify-icon>
+            <span>DAFTAR NILAI</span>
+        </span>
+        </a>
+    </li>
 @endif
 
 @if(auth()->user()->namespace == "\App\Models\Guru")

@@ -8,6 +8,7 @@ use App\Models\KelasSiswa;
 use App\Models\Mapel;
 use App\Models\Siswa;
 use App\Models\TahunAkademik;
+use App\Models\WaliKelas;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
@@ -166,7 +167,11 @@ class MapelController extends Controller
             $tahunAkademik = TahunAkademik::where('status','aktif')->first();
             $kelasSiswa = KelasSiswa::where('id_siswa',auth()->user()->modelID)->where('id_tahun',$tahunAkademik->id_tahun)->pluck('nama_kelas')->toArray();
             $mapel = Mapel::whereIn('nama_kelas',$kelasSiswa)->get();
+        }else if(auth()->user()->namespace == '\App\Models\WaliKelas'){
+            $waliKelas = WaliKelas::where('id_wali',auth()->user()->modelID)->pluck('nama_kelas')->toArray();
+            $mapel = Mapel::whereIn('nama_kelas',$waliKelas)->get();
         }
+
 
 
 

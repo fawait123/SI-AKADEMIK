@@ -48,4 +48,8 @@ Route::group(['middleware'=>'auth'],function (){
     Route::resource('siswa',\App\Http\Controllers\SiswaController::class);
     Route::resource('sesi',\App\Http\Controllers\SesiController::class);
     Route::resource('kelas-siswa',\App\Http\Controllers\KelasSiswaController::class)->parameters(['kelas-siswa'=>'kelas_siswa']);
+
+
+    Route::get('legger',[\App\Http\Controllers\LeggerController::class,'index'])->name('legger.index');
+    Route::get('legger/download',[\App\Http\Controllers\LeggerController::class,'download'])->name('legger.download');
 });

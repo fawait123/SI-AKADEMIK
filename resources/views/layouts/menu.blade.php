@@ -106,6 +106,14 @@
         </span>
         </a>
     </li>
+    <li>
+        <a href="{{route('legger.index')}}" class="navItem {{Request::is('legger') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="carbon:value-variable"></iconify-icon>
+            <span>LEGGER</span>
+        </span>
+        </a>
+    </li>
 @endif
 
 @if(auth()->user()->namespace == "\App\Models\Guru")

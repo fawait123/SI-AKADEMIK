@@ -27,6 +27,28 @@
                                 <div class="invalid-feedback">{{\Illuminate\Support\Facades\Session::get('message')}}</div>
                             @endif
                         </div>
+                        <div style="display: grid; grid-template-columns: auto auto auto auto auto">
+                            <div class="input-area mb-3">
+                                <label for="uh1" class="form-label">UH1</label>
+                                <input type="checkbox" name="nilai" value="uh1" checked onchange="changeCheckbox(this)">
+                            </div>
+                            <div class="input-area mb-3">
+                                <label for="uh2" class="form-label">UH2</label>
+                                <input type="checkbox" name="nilai" value="uh2" checked onchange="changeCheckbox(this)">
+                            </div>
+                            <div class="input-area mb-3">
+                                <label for="uh3" class="form-label">UH3</label>
+                                <input type="checkbox" name="nilai" value="uh3" checked onchange="changeCheckbox(this)">
+                            </div>
+                            <div class="input-area mb-3">
+                                <label for="uts" class="form-label">UTS</label>
+                                <input type="checkbox" name="nilai" value="uts" checked onchange="changeCheckbox(this)">
+                            </div>
+                            <div class="input-area mb-3">
+                                <label for="uas" class="form-label">UAS</label>
+                                <input type="checkbox" name="nilai" value="uas" checked onchange="changeCheckbox(this)">
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-sm">Cari</button>
                     </form>
                 </div>
@@ -56,35 +78,35 @@
                                             <input type="text" class="form-control" name="nama[]" value="{{$item->nama}}" placeholder="Siswa" readonly>
                                         </div>
                                         <div>
-                                            <div class="input-area mb-3">
+                                            <div class="input-area mb-3 uh1">
                                                 <label for="uh1" class="form-label">NILAI UH1</label>
                                                 <input id="uh1" value="{{old('uh1',0)}}" name="uh1[]" type="number" class="form-control @error('uh1') is-invalid @enderror" placeholder="uh1">
                                                 @error('uh1')
                                                 <div class="invalid-feedback">{{$message}}</div>
                                                 @enderror
                                             </div>
-                                            <div class="input-area mb-3">
+                                            <div class="input-area mb-3 uh2">
                                                 <label for="uh2" class="form-label">NILAI UH2</label>
                                                 <input id="uh2" value="{{old('uh2',0)}}" name="uh2[]" type="number" class="form-control @error('uh2') is-invalid @enderror" placeholder="uh2">
                                                 @error('uh2')
                                                 <div class="invalid-feedback">{{$message}}</div>
                                                 @enderror
                                             </div>
-                                            <div class="input-area mb-3">
+                                            <div class="input-area mb-3 uh3">
                                                 <label for="uh3" class="form-label">NILAI UH3</label>
                                                 <input id="uh3" value="{{old('uh3',0)}}" name="uh3[]" type="number" class="form-control @error('uh3') is-invalid @enderror" placeholder="uh3">
                                                 @error('uh3')
                                                 <div class="invalid-feedback">{{$message}}</div>
                                                 @enderror
                                             </div>
-                                            <div class="input-area mb-3">
+                                            <div class="input-area mb-3 uts">
                                                 <label for="uts" class="form-label">NILAI UTS</label>
                                                 <input id="uts" value="{{old('uts',0)}}" name="uts[]" type="number" class="form-control @error('uts') is-invalid @enderror" placeholder="uts">
                                                 @error('uts')
                                                 <div class="invalid-feedback">{{$message}}</div>
                                                 @enderror
                                             </div>
-                                            <div class="input-area mb-3">
+                                            <div class="input-area mb-3 uas">
                                                 <label for="uas" class="form-label">NILAI UAS</label>
                                                 <input id="uas" value="{{old('uas',0)}}" name="uas[]" type="number" class="form-control @error('uas') is-invalid @enderror" placeholder="uas">
                                                 @error('uas')
@@ -109,3 +131,18 @@
         @endif
     </div>
 @endsection
+
+@push('customjs')
+    <script>
+        function changeCheckbox(Obj){
+            let checked = $(Obj).is(':checked')
+            let value = $(Obj).val()
+
+            if(!checked){
+                $(`.${value}`).addClass('d-none')
+            }else{
+                $(`.${value}`).removeClass('d-none')
+            }
+        }
+    </script>
+@endpush

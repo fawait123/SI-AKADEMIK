@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
     <!-- End : Theme CSS-->
     <script src="{{asset('assets')}}/js/settings.js" sync></script>
+    <style>
+        .d-none{
+            display: none;
+        }
+    </style>
 </head>
 
 <body class=" font-inter dashcode-app" id="body_class">

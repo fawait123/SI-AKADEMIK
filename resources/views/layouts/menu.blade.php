@@ -109,8 +109,16 @@
     <li>
         <a href="{{route('legger.index')}}" class="navItem {{Request::is('legger') ? 'active' : ''}}">
         <span class="flex items-center">
-            <iconify-icon class="nav-icon" icon="carbon:value-variable"></iconify-icon>
+            <iconify-icon class="nav-icon" icon="carbon:report"></iconify-icon>
             <span>LEGGER</span>
+        </span>
+        </a>
+    </li>
+    <li>
+        <a href="{{route('raport.index')}}" class="navItem {{Request::is('raport') ? 'active' : ''}}">
+        <span class="flex items-center">
+            <iconify-icon class="nav-icon" icon="bi:book"></iconify-icon>
+            <span>RAPORT</span>
         </span>
         </a>
     </li>

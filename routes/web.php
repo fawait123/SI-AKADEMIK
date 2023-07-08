@@ -52,4 +52,9 @@ Route::group(['middleware'=>'auth'],function (){
 
     Route::get('legger',[\App\Http\Controllers\LeggerController::class,'index'])->name('legger.index');
     Route::get('legger/download',[\App\Http\Controllers\LeggerController::class,'download'])->name('legger.download');
+
+
+//    raport
+    Route::get('raport',[\App\Http\Controllers\RaportController::class,'index'])->name('raport.index');
+    Route::get('raport/download',[\App\Http\Controllers\RaportController::class,'download'])->name('raport.download');
 });

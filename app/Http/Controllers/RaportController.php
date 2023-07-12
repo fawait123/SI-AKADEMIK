@@ -8,16 +8,16 @@ use Illuminate\Http\Request;
 class RaportController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        $data = Raport::get();
+        $data = Raport::get($request);
 
         return view('raport.index',compact('data'));
     }
 
-    public function download()
+    public function download(Request $request)
     {
-        $data = Raport::get();
+        $data = Raport::get($request);
         return view('raport.download',compact('data'));
     }
 }

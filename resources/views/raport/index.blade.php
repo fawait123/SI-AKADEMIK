@@ -5,7 +5,21 @@
     <div class=" space-y-5">
         <div class="card px-6 pb-6">
             <div class="card-body p-4">
-                <a href="{{route('raport.download')}}" target="_blank" class="btn btn-primary btn-sm">Download</a>
+                <form action="{{route('raport.index')}}" method="get" style="display: inline;">
+                    <div class="flex-row mb-3">
+                        <div class="form-group">
+                            <label for="id_siswa">SISWA</label>
+                            <select name="id_siswa" id="id_siswa" class="form-control">
+                                <option value="">pilih</option>
+                                @foreach($data->siswa as $item)
+                                    <option value="{{$item->id_siswa}}" {{ \Illuminate\Support\Facades\Request::filled('id_siswa')  ? \Illuminate\Support\Facades\Request::get('id_siswa') == $item->id_siswa ? 'selected':'':''}}>{{$item->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm">Cari</button>
+                </form>
+                <a href="{{route('raport.download')}}{{\Illuminate\Support\Facades\Request::filled('id_siswa') ? '?id_siswa='.\Illuminate\Support\Facades\Request::get('id_siswa'):''}}" target="_blank" class="btn btn-primary btn-sm">Download</a>
             </div>
         </div>
         <div class="card">

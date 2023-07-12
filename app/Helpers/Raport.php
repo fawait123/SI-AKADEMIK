@@ -11,13 +11,21 @@ use App\Models\TahunAkademik;
 use App\Models\WaliKelas;
 
 class  Raport{
-    public static function get()
+    public static function get($request)
     {
         $waliKelas = WaliKelas::where('id_wali', auth()->user()->modelID)->first();
         $tahunAjaran = TahunAkademik::where('status','aktif')->first();
         $kelasSiswa = KelasSiswa::where('nama_kelas',$waliKelas->nama_kelas)->where('id_tahun',$tahunAjaran->id_tahun)->pluck('id_siswa')->toArray();
         $mapel = Mapel::where('nama_kelas',$waliKelas->nama_kelas)->get();
-        $siswa = Siswa::whereIn('id_siswa',$kelasSiswa)->get();
+
+        $allSiswa = Siswa::whereIn('id_siswa',$kelasSiswa)->get();
+
+        $siswa = Siswa::query();
+        $siswa = $siswa->whereIn('id_siswa',$kelasSiswa);
+        if($request->filled('id_siswa')){
+            $siswa = $siswa->where('id_siswa',$request->id_siswa);
+        }
+        $siswa = $siswa->get();
 
         $datas = collect([]);
 
@@ -59,7 +67,8 @@ class  Raport{
                 'kelas'=>$waliKelas->nama_kelas,
                 'tahunajaran'=>$tahunAjaran->tahun_akademik,
                 'semester'=>$tahunAjaran->semester,
-            ]
+            ],
+            'siswa'=>$allSiswa
         ];
     }
 }

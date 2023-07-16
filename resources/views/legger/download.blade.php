@@ -54,13 +54,13 @@
             </tr>
             @foreach($item->detail as $d)
                 <tr>
-                    <td style="border: 1px solid black">{{$loop->iteration}}</td>
-                    <td style="border: 1px solid black">{{$d->nama}}</td>
-                    <td style="border: 1px solid black">{{$d->nilai->uh1}}</td>
-                    <td style="border: 1px solid black">{{$d->nilai->uh2}}</td>
-                    <td style="border: 1px solid black">{{$d->nilai->uh3}}</td>
-                    <td style="border: 1px solid black">{{$d->nilai->uts}}</td>
-                    <td style="border: 1px solid black">{{$d->nilai->uas}}</td>
+                    <td style="border: 1px solid black">{{$loop->iteration ?? ''}}</td>
+                    <td style="border: 1px solid black">{{$d->nama ?? ''}}</td>
+                    <td style="border: 1px solid black">{{$d->nilai->uh1 ?? ''}}</td>
+                    <td style="border: 1px solid black">{{$d->nilai->uh2 ?? ''}}</td>
+                    <td style="border: 1px solid black">{{$d->nilai->uh3 ?? ''}}</td>
+                    <td style="border: 1px solid black">{{$d->nilai->uts ?? ''}}</td>
+                    <td style="border: 1px solid black">{{$d->nilai->uas ?? ''}}</td>
                 </tr>
             @endforeach
         </table>

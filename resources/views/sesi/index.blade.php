@@ -39,10 +39,10 @@
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                                     @foreach($data as $item)
                                         <tr>
-                                            <td class="table-td">{{$item->id_sesi}}</td>
-                                            <td class="table-td ">{{$item->hari}}</td>
-                                            <td class="table-td ">{{$item->jam_mulai.' - '.$item->jam_selesai}}</td>
-                                            <td class="table-td ">{{$item->mapel->mapel}}</td>
+                                            <td class="table-td">{{$item->id_sesi ?? ''}}</td>
+                                            <td class="table-td ">{{$item->hari ?? ''}}</td>
+                                            <td class="table-td ">{{$item->jam_mulai.' - '.$item->jam_selesai ?? ''}}</td>
+                                            <td class="table-td ">{{$item->mapel->mapel ?? ''}}</td>
                                             <td class="table-td ">
                                                 <div class="flex space-x-3 rtl:space-x-reverse">
 {{--                                                    <button class="action-btn" type="button">--}}

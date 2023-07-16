@@ -53,11 +53,11 @@
                                             }
                                         @endphp
                                         <tr>
-                                            <td class="table-td ">{{ $item->name }}</td>
-                                            <td class="table-td ">{{ $item->username }}</td>
-                                            <td class="table-td ">{{ $item->email }}</td>
+                                            <td class="table-td ">{{ $item->name  ?? ''}}</td>
+                                            <td class="table-td ">{{ $item->username  ?? ''}}</td>
+                                            <td class="table-td ">{{ $item->email  ?? ''}}</td>
                                             <td class="table-td ">
-                                                <span class="badge bg-info-800 text-white">{{ $role }}</span>
+                                                <span class="badge bg-info-800 text-white">{{ $role  ?? ''}}</span>
                                             </td>
                                             <td class="table-td ">
                                                 <div class="flex space-x-3 rtl:space-x-reverse">

@@ -63,13 +63,13 @@
                                         <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                                         @foreach($datas as $item)
                                             <tr>
-                                                <td class="table-td">{{$item['nama']}}</td>
-                                                <td class="table-td">{{$item['uh1']}}</td>
-                                                <td class="table-td">{{$item['uh2']}}</td>
-                                                <td class="table-td">{{$item['uh3']}}</td>
-                                                <td class="table-td">{{$item['uts']}}</td>
-                                                <td class="table-td">{{$item['uas']}}</td>
-                                                <td class="table-td">{{$item['rata_rata']}}</td>
+                                                <td class="table-td">{{$item['nama'] ?? ''}}</td>
+                                                <td class="table-td">{{$item['uh1'] ?? ''}}</td>
+                                                <td class="table-td">{{$item['uh2'] ?? ''}}</td>
+                                                <td class="table-td">{{$item['uh3'] ?? ''}}</td>
+                                                <td class="table-td">{{$item['uts'] ?? ''}}</td>
+                                                <td class="table-td">{{$item['uas'] ?? ''}}</td>
+                                                <td class="table-td">{{$item['rata_rata'] ?? ''}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>

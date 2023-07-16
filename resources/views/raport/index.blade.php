@@ -58,13 +58,13 @@
                             </tr>
                             @foreach($item->detail as $d)
                                 <tr>
-                                    <td class="border-[1.5px]">{{$loop->iteration}}</td>
-                                    <td class="border-[1.5px]">{{$d->mapel}}</td>
-                                    <td class="border-[1.5px]">{{$d->nilai->uh1}}</td>
-                                    <td class="border-[1.5px]">{{$d->nilai->uh2}}</td>
-                                    <td class="border-[1.5px]">{{$d->nilai->uh3}}</td>
-                                    <td class="border-[1.5px]">{{$d->nilai->uts}}</td>
-                                    <td class="border-[1.5px]">{{$d->nilai->uas}}</td>
+                                    <td class="border-[1.5px]">{{$loop->iteration ?? ''}}</td>
+                                    <td class="border-[1.5px]">{{$d->mapel ?? ''}}</td>
+                                    <td class="border-[1.5px]">{{$d->nilai->uh1 ?? ''}}</td>
+                                    <td class="border-[1.5px]">{{$d->nilai->uh2 ?? ''}}</td>
+                                    <td class="border-[1.5px]">{{$d->nilai->uh3 ?? ''}}</td>
+                                    <td class="border-[1.5px]">{{$d->nilai->uts ?? ''}}</td>
+                                    <td class="border-[1.5px]">{{$d->nilai->uas ?? ''}}</td>
                                 </tr>
                             @endforeach
                             <tr>

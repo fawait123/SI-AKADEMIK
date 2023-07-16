@@ -40,9 +40,9 @@
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                                     @foreach($data as $item)
                                         <tr>
-                                            <td class="table-td">{{$item->id_tahun}}</td>
-                                            <td class="table-td ">{{$item->tahun_akademik}}</td>
-                                            <td class="table-td ">{{$item->semester}}</td>
+                                            <td class="table-td">{{$item->id_tahun ?? ''}}</td>
+                                            <td class="table-td ">{{$item->tahun_akademik  ?? ''}}</td>
+                                            <td class="table-td ">{{$item->semester  ?? ''}}</td>
                                             <td class="table-td ">
                                                 <span class="badge text-white {{$item->status == 'aktif' ? 'bg-primary-900':'bg-danger-900'}}">{{$item->status}}</span>
                                             </td>

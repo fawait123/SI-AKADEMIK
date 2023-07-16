@@ -55,14 +55,14 @@
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                                     @foreach($data as $item)
                                         <tr>
-                                            <td class="table-td">{{$item->id_guru}}</td>
-                                            <td class="table-td ">{{$item->nama}}</td>
-                                            <td class="table-td ">{{$item->tempat_lahir.', '.date('d M Y', strtotime($item->tanggal_lahir))}}</td>
-                                            <td class="table-td ">{{$item->jenis_kelamin}}</td>
-                                            <td class="table-td ">{{$item->agama}}</td>
-                                            <td class="table-td ">{{$item->status_kepegawaian}}</td>
-                                            <td class="table-td ">{{$item->no_hp}}</td>
-                                            <td class="table-td ">{{$item->alamat}}</td>
+                                            <td class="table-td">{{$item->id_guru ?? ''}}</td>
+                                            <td class="table-td ">{{$item->nama ?? ''}}</td>
+                                            <td class="table-td ">{{$item->tempat_lahir.', '.date('d M Y', strtotime($item->tanggal_lahir)) ?? ''}}</td>
+                                            <td class="table-td ">{{$item->jenis_kelamin ?? ''}}</td>
+                                            <td class="table-td ">{{$item->agama ?? ''}}</td>
+                                            <td class="table-td ">{{$item->status_kepegawaian ?? ''}}</td>
+                                            <td class="table-td ">{{$item->no_hp ?? ''}}</td>
+                                            <td class="table-td ">{{$item->alamat ?? ''}}</td>
                                             <td class="table-td ">
                                                 <div class="flex space-x-3 rtl:space-x-reverse">
 {{--                                                    <button class="action-btn" type="button">--}}

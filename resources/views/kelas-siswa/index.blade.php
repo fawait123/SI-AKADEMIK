@@ -43,11 +43,11 @@
                                 <tbody class="bg-white divide-y divide-slate-100 dark:bg-slate-800 dark:divide-slate-700">
                                     @foreach($data as $item)
                                         <tr>
-                                            <td class="table-td">{{$item->id_tahun}}</td>
-                                            <td class="table-td ">{{$item->tahun->tahun_akademik}}</td>
-                                            <td class="table-td ">{{$item->tahun->semester}}</td>
-                                            <td class="table-td ">{{$item->nama_kelas}}</td>
-                                            <td class="table-td ">{{$item->siswa->nama}}</td>
+                                            <td class="table-td">{{$item->id_tahun ??""}}</td>
+                                            <td class="table-td ">{{$item->tahun->tahun_akademik ??""}}</td>
+                                            <td class="table-td ">{{$item->tahun->semester ??""}}</td>
+                                            <td class="table-td ">{{$item->nama_kelas ??""}}</td>
+                                            <td class="table-td ">{{$item->siswa->nama ??""}}</td>
                                             <td class="table-td ">
                                                 <div class="flex space-x-3 rtl:space-x-reverse">
 {{--                                                    <button class="action-btn" type="button">--}}

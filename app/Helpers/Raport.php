@@ -33,24 +33,20 @@ class  Raport{
             $nilai = collect([]);
             foreach ($mapel as $m){
                 $cariNilai = Nilai::where('id_siswa',$s->id_siswa)->where('id_mapel',$m->id_mapel)->where('nama_kelas',$waliKelas->nama_kelas)->first();
+                $uh1 = $cariNilai->uh1 ?? 0;
+                $uh2 = $cariNilai->uh2 ?? 0;
+                $uh3 = $cariNilai->uh3 ?? 0;
+                $uts = $cariNilai->uts ?? 0;
+                $uas = $cariNilai->uas ?? 0;
+                $total = $uh1 + $uh2 + $uh3 + $uts + $uas;
                 $nilai->push((object)[
                     'id_mapel'=>$m->id_mapel,
                     'mapel'=>$m->mapel,
-                    'nilai'=>$cariNilai
+                    'nilai'=>$total / 5
                 ]);
             }
 
-            $totalNilai = $nilai->map(function($item){
-               $uh1 = $item->nilai->uh1 ?? 0;
-               $uh2 = $item->nilai->uh2 ?? 0;
-               $uh3 = $item->nilai->uh3 ?? 0;
-               $uts = $item->nilai->uts ?? 0;
-               $uas = $item->nilai->uas ?? 0;
-
-               return $uh1 + $uh2 + $uh3 + $uts + $uas;
-            });
-
-            $totalNilai = $totalNilai->sum();
+            $totalNilai = $nilai->sum('nilai');
 
             $totalMapel = $nilai->count();
             $datas->push((object)[
@@ -58,7 +54,7 @@ class  Raport{
                 'detail'=>$nilai,
                 'totalNilai'=>$totalNilai,
                 'totalMapel'=>$totalMapel,
-                'rata_rata'=>$totalNilai / ($totalMapel * 5)
+                'rata_rata'=>number_format($totalNilai / $totalMapel,2)
             ]);
         }
         return (object)[

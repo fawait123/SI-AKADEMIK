@@ -104,9 +104,13 @@ class SiswaController extends Controller
             'pekerjaan_ayah'=>'required',
             'nama_ibu'=>'required',
             'pekerjaan_ibu'=>'required',
+            'status'=>'required'
         ]);
+        $status = $request->status == 1 ? null : date('Y-m-d H:i:s');
 
-        $siswa->update($request->all());
+        $siswa->update(array_merge($request->except('status'),[
+            'deleted_at'=>$status
+        ]));
         return redirect()->route('siswa.index')->with(['message'=>'Data berhasil diubah']);
 
     }
